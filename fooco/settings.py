@@ -25,7 +25,7 @@ SECRET_KEY = 'kh(ben0ieii@j7ngc9cq%c#*%430bxzhs8qu4ur5kd+^26u55+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mobile-rectangle.herokuapp.com']
 
 
 # Application definition
