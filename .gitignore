@@ -58,7 +58,7 @@ coverage.xml
 .media/
 staticfiles
 local_settings.py
-
+static
 # Flask stuff:
 instance/
 .webassets-cache
