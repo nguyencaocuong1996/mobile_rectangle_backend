@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my app
     'customer.apps.CustomerConfig',
-    'hotel.apps.HotelConfigs'
+    'hotel.apps.HotelConfig',
+    'owner.apps.OwnerConfig',
+    'restaurant.apps.RestaurantConfig',
 ]
 
 MIDDLEWARE = [
