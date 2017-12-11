@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Customer(models.Model):
-    user = models.OneToOneField('auth.User')
+    user = models.OneToOneField('auth.User', related_name='customer', on_delete=models.CASCADE)
     phone = models.CharField(max_length=15, blank=True, null=True)
 
     def __str__(self):
