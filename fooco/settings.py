@@ -127,6 +127,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+MEDIA_URL = '/media/'
+
 # config rest frame work
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
