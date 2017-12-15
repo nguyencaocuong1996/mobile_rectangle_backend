@@ -3,5 +3,6 @@ from .views import *
 
 
 urlpatterns = [
-    # url(r'$^', ),
+    url(r'^$', ListHotel.as_view()),
+    url(r'^create/$', CreateHotel.as_view()),
 ]
