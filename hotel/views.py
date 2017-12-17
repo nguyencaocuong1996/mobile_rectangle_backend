@@ -1,6 +1,16 @@
 from rest_framework.generics import ListAPIView, CreateAPIView
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated
+from .permissions import IsCustomer
+
+
+class ListMyHotel(ListAPIView):
+    serializer_class = HotelSerializer
+    permission_classes = (IsCustomer,)
+
+    def get_queryset(self):
+        customer = self.request.user.customer
+        return Hotel.objects.filter(owner=customer)
 
 
 class ListAllHotel(ListAPIView):

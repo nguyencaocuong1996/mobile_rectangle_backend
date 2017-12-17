@@ -4,6 +4,8 @@ from hotel.models import Hotel
 
 class HotelSerializer(serializers.ModelSerializer):
 
+    services = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = Hotel
         exclude = ()
