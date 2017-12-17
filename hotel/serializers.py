@@ -15,4 +15,4 @@ class CreateHotelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Hotel
-        exclude = ('lat', 'long', 'star')
+        exclude = ('lat', 'long', )

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Service(models.Model):
@@ -20,9 +21,10 @@ class Restaurant(models.Model):
     discount = models.FloatField
     description = models.TextField(null=True, blank=True)
     services = models.ManyToManyField('restaurant.Service', related_name="restaurants")
-    openAt = models.TimeField(auto_now=True)
-    closeAt = models.TimeField(auto_now=True)
+    openAt = models.TimeField(default=timezone.now)
+    closeAt = models.TimeField(default=timezone.now)
     createdAt = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey('customer.Customer', related_name='restaurants', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
