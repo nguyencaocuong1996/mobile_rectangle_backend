@@ -1,3 +1,5 @@
+
+from datetime import datetime
 from django.db import models
 from django.utils import timezone
 
@@ -28,3 +30,26 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class FavoriteRestaurant(models.Model):
+    customer = models.ForeignKey('customer.Customer', related_name='favorite_restaurant_meta', on_delete=models.CASCADE)
+    restaurant = models.ForeignKey('restaurant.Restaurant', related_name='favorite_customer_meta',
+                                   on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.customer.full_name + " - " + self.restaurant.name
+
+    class Meta:
+        unique_together = (("customer", "restaurant"),)
+
+
+class BookedRestaurant(models.Model):
+    customer = models.ForeignKey('customer.Customer', related_name='booked_restaurant_meta', on_delete=models.CASCADE)
+    restaurant = models.ForeignKey('restaurant.Restaurant', related_name='booked_customer_meta', on_delete=models.CASCADE)
+    createdAt = models.DateField(auto_now_add=True)
+    bookedAt = models.DateField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        return self.customer.full_name + " book " + self.restaurant.name + " at " + str(self.bookedAt)
+
