@@ -33,7 +33,7 @@ class ObtainAuthToken(APIView):
         customer = user.customer
         token, created = Token.objects.get_or_create(user=user)
         response = {
-            'id': user.id,
+            'id': customer.id,
             'token': token.key,
             'name': customer.full_name,
             'email': user.email,

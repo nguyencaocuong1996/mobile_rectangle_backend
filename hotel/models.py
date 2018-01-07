@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 from django.utils import timezone
 
 
@@ -28,3 +29,24 @@ class Hotel(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class FavoriteHotel(models.Model):
+    customer = models.ForeignKey('customer.Customer', related_name='favorite_hotel_meta', on_delete=models.CASCADE)
+    hotel = models.ForeignKey('hotel.Hotel', related_name='favorite_customer_meta', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.customer.full_name + " - " + self.hotel.name
+
+    class Meta:
+        unique_together = (("customer", "hotel"),)
+
+
+class BookedHotel(models.Model):
+    customer = models.ForeignKey('customer.Customer', related_name='booked_hotel_meta', on_delete=models.CASCADE)
+    hotel = models.ForeignKey('hotel.Hotel', related_name='booked_customer_meta', on_delete=models.CASCADE)
+    createdAt = models.DateField(auto_now_add=True)
+    bookedAt = models.DateField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        return self.customer.full_name + " book " + self.hotel.name + " at " + str(self.bookedAt)

@@ -25,7 +25,7 @@ SECRET_KEY = 'kh(ben0ieii@j7ngc9cq%c#*%430bxzhs8qu4ur5kd+^26u55+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mobile-rectangle.herokuapp.com', 'localhost', '127.0.0.1', '10.0.2.2']
+ALLOWED_HOSTS = ['mobile-rectangle.herokuapp.com', 'localhost', '127.0.0.1', '10.0.2.2', '70eca347.ngrok.io']
 
 
 # Application definition
