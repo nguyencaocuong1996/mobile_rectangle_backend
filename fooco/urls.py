@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^api/customer/', include('customer.urls', namespace="customer"), name="customer"),
     url(r'^api/restaurant/', include('restaurant.urls', namespace="restaurant"), name="restaurant"),
     url(r'^api/hotel/', include('hotel.urls', namespace="hotel"), name="hotel"),
+    url(r'^api/place/', include('place.urls', namespace="place"), name="place"),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
