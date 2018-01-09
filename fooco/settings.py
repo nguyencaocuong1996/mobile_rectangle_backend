@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'hotel.apps.HotelConfig',
     'restaurant.apps.RestaurantConfig',
     'place.apps.PlaceConfig',
+    'event.apps.EventConfig',
     # lib
     'rest_framework',
     'rest_framework.authtoken',
