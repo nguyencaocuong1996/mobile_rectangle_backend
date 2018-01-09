@@ -54,6 +54,6 @@ class AddFavorite(CreateAPIView):
 
 
 class BookHotel(CreateAPIView):
-    serializer_class = BookedHotelSerializer
+    serializer_class = CreateBookedHotelSerializer
     queryset = BookedHotel.objects.all()
 

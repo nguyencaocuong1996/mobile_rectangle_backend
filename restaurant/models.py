@@ -46,8 +46,8 @@ class FavoriteRestaurant(models.Model):
 class BookedRestaurant(models.Model):
     customer = models.ForeignKey('customer.Customer', related_name='booked_restaurant_meta', on_delete=models.CASCADE)
     restaurant = models.ForeignKey('restaurant.Restaurant', related_name='booked_customer_meta', on_delete=models.CASCADE)
-    createdAt = models.DateField(auto_now_add=True)
-    bookedAt = models.DateField(default=datetime.now, blank=True)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    bookedAt = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
         return self.customer.full_name + " book " + self.restaurant.name + " at " + str(self.bookedAt)

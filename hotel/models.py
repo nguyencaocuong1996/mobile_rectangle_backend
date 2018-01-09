@@ -45,8 +45,8 @@ class FavoriteHotel(models.Model):
 class BookedHotel(models.Model):
     customer = models.ForeignKey('customer.Customer', related_name='booked_hotel_meta', on_delete=models.CASCADE)
     hotel = models.ForeignKey('hotel.Hotel', related_name='booked_customer_meta', on_delete=models.CASCADE)
-    createdAt = models.DateField(auto_now_add=True)
-    bookedAt = models.DateField(default=datetime.now, blank=True)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    bookedAt = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
         return self.customer.full_name + " book " + self.hotel.name + " at " + str(self.bookedAt)

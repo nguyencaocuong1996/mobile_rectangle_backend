@@ -33,3 +33,9 @@ class BookedHotelSerializer(serializers.ModelSerializer):
         model = BookedHotel
         exclude = ()
 
+
+class CreateBookedHotelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BookedHotel
+        exclude = ()
+
