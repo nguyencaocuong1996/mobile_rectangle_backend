@@ -12,6 +12,8 @@ class PlaceImageSerializer(serializers.ModelSerializer):
 class PlaceSerializer(serializers.ModelSerializer):
 
     images = PlaceImageSerializer(many=True)
+    type = serializers.CharField(default="Địa điểm")
+    typeId = serializers.IntegerField(default=3)
 
     class Meta:
         model = Place

@@ -5,6 +5,8 @@ from .models import Restaurant, FavoriteRestaurant, BookedRestaurant
 class RestaurantSerializer(serializers.ModelSerializer):
 
     services = serializers.StringRelatedField(many=True)
+    type = serializers.CharField(default="Nhà hàng")
+    typeId = serializers.IntegerField(default=2)
 
     class Meta:
         model = Restaurant

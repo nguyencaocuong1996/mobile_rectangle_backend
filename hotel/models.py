@@ -16,14 +16,14 @@ class Hotel(models.Model):
     address = models.CharField(max_length=255, null=False, blank=False)
     lat = models.FloatField(default=0)
     long = models.FloatField(default=0)
-    image = models.ImageField(upload_to='image/hotel', blank=True, null=True)
+    image = models.ImageField(upload_to='image/hotel', default='image/hotel/default.jpg', blank=True, null=True)
     star = models.FloatField(default=0)
     price = models.FloatField(default=0)
     discount = models.FloatField
     description = models.TextField(null=True, blank=True)
-    services = models.ManyToManyField('hotel.Service', related_name='hotels')
-    openAt = models.TimeField(default=timezone.now)
-    closeAt = models.TimeField(default=timezone.now)
+    services = models.ManyToManyField('hotel.Service', related_name='hotels', blank=True)
+    openAt = models.TimeField(default="00:00")
+    closeAt = models.TimeField(default="00:00")
     createdAt = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey('customer.Customer', related_name='hotels', on_delete=models.CASCADE)
 
