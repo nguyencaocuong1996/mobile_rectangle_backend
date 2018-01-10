@@ -6,7 +6,7 @@ class PlaceImage(models.Model):
     place = models.ForeignKey('place.Place', related_name="images", on_delete=models.CASCADE)
 
     def __str__(self):
-        return 'Place image ' + str(self.id)
+        return 'Place image ' + str(self.id) + ' place ' + str(self.place.name)
 
 
 class Place(models.Model):
