@@ -25,6 +25,8 @@ urlpatterns = [
     url(r'^api/hotel/', include('hotel.urls', namespace="hotel"), name="hotel"),
     url(r'^api/place/', include('place.urls', namespace="place"), name="place"),
     url(r'^api/event/', include('event.urls', namespace="event"), name="event"),
+    url(r'^api/service/', include('service.urls', namespace="service"), name="service"),
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

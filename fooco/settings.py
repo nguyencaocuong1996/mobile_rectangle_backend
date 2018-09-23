@@ -25,7 +25,10 @@ SECRET_KEY = 'kh(ben0ieii@j7ngc9cq%c#*%430bxzhs8qu4ur5kd+^26u55+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mobile-rectangle.herokuapp.com', 'localhost', '127.0.0.1', '10.0.2.2', 'b0e989bd.ngrok.io']
+ALLOWED_HOSTS = [
+    'mobile-rectangle.herokuapp.com',
+    'localhost', '127.0.0.1', '10.0.2.2',
+    '80bd1075.ngrok.io']
 
 
 # Application definition
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'restaurant.apps.RestaurantConfig',
     'place.apps.PlaceConfig',
     'event.apps.EventConfig',
+    'service.apps.ServiceConfig',
     # lib
     'rest_framework',
     'rest_framework.authtoken',
